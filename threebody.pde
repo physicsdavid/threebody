@@ -20,7 +20,7 @@ float vmax = 0.5;
 
 void setup()
 {
-  // body 1 - centered and stationary
+  // body 1
   m1 = 1;
   x1 = random(xsize)+xsize*scale/2;
   y1 = random(ysize)+ysize*scale/2;
@@ -29,7 +29,7 @@ void setup()
   ax1 = 0;
   ay1 = 0;
   
-  // body 2 - medium sized and moving
+  // body 2
   m2 = 1;
   x2 = random(xsize)+xsize*scale/2;
   y2 = random(ysize)+ysize*scale/2;
@@ -38,7 +38,7 @@ void setup()
   ax2 = 0;
   ay2 = 0;
   
-  // body 3 - small
+  // body 3
   m3 = 1;
   x3 = random(xsize)+xsize*scale/2;
   y3 = random(ysize)+ysize*scale/2;
