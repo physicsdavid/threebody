@@ -1,6 +1,24 @@
-// Three body simulation
-int xsize=1024;
-int ysize=600;
+// Three Body Problem (2019)
+// David Harris
+//
+// Generates image sequence based on 3 body celestial mechanics in a plane with wraparound.
+// Op art/glitch effects due to finite rendering effects onto pixels.
+//
+// Output saved to a sequence of files: output/3bp-######.png 
+//
+// From image sequence use ffmpeg to generate video file, e.g.
+//    ffmpeg -framerate 25 -i 3bp-%06d.png 3bp.mp4
+//
+// To concatenate multiple runs use this:
+//    ffmpeg -f concat -safe 0 -i mylist.txt -c copy output.mp4
+// where mylist.txt has a series of lines like this:
+//    file '3bp-hires-run1.mp4'
+//
+// -------------------------------------------------------------------------------------
+
+// Set resolution to Full HD/1080p
+int xsize=1920;
+int ysize=1080;
 
 float x1, x2, x3, y1, y2, y3;
 float vx1, vx2, vx3, vy1, vy2, vy3;
@@ -47,8 +65,9 @@ void setup()
   ax3 = 0;
   ay3 = 0;
   
-  size(xsize,ysize);
+  size(1920,1080);
   blendMode(DIFFERENCE);
+  background(255);
 }
 
 void draw()
@@ -90,6 +109,7 @@ void draw()
   y2 = (y2 + vy2*deltat + ysize*scale)%(ysize*scale);
   y3 = (y3 + vy3*deltat + ysize*scale)%(ysize*scale);
 
+  saveFrame("output/3bp-######.png");
 }  
 
 
